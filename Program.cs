@@ -22,27 +22,29 @@ namespace AdventDay1
 
             var isRunning = true;
 
-            while (isRunning)
+            // while (isRunning)
+            // {
+            for (int firstIndex = 0; firstIndex < numbers.Count - 2; firstIndex++)
             {
-                for (int firstIndex = 0; firstIndex < numbers.Count - 2; firstIndex++)
+                for (int secondIndex = 1; secondIndex < numbers.Count - 1; secondIndex++)
                 {
-                    for (int secondIndex = 1; secondIndex < numbers.Count - 1; secondIndex++)
+                    for (int thirdIndex = 2; thirdIndex < numbers.Count; thirdIndex++)
                     {
-                        for (int thirdIndex = 2; thirdIndex < numbers.Count; thirdIndex++)
+                        var sum = numbers[firstIndex] + numbers[secondIndex] + numbers[thirdIndex];
+                        if (sum == 2020)
                         {
-                            var sum = numbers[firstIndex] + numbers[secondIndex] + numbers[thirdIndex];
-                            if (sum == 2020)
-                            {
-                                Console.WriteLine($"{numbers[firstIndex]} * {numbers[secondIndex]} * {numbers[thirdIndex]}= {numbers[firstIndex] * numbers[secondIndex] * numbers[thirdIndex]}");
-                                isRunning = false;
-                                break;
-                            }
+                            Console.WriteLine($"{numbers[firstIndex]} * {numbers[secondIndex]} * {numbers[thirdIndex]}= {numbers[firstIndex] * numbers[secondIndex] * numbers[thirdIndex]}");
+                            goto LoopEnd;
+                            // break;
                         }
-
-
                     }
+
+
                 }
             }
+        LoopEnd:
+            Console.WriteLine("Finished");
+            // }
         }
     }
 }
